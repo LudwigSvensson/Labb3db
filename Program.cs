@@ -60,7 +60,7 @@ namespace Labb3db
 
                     for (int i = 0; i < klassNamn.Count; i++)
                     {
-                        Console.WriteLine($"[{i + 1}] {klassNamn[i]}");
+                        Console.WriteLine($"[{i +1}] {klassNamn[i]}");
                     }
 
                     var val2 = Console.ReadLine();
