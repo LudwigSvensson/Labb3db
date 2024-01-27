@@ -10,24 +10,45 @@ namespace Labb3db
             using Labb3dbContext context = new Labb3dbContext();
 
             Console.WriteLine("Välkommen kom till skolinfo!");
-            Console.WriteLine("Välj [1] eller [2] för att se info:" +
+            Console.WriteLine("Välj [1], [2] eller [3] för att se info:" +
                 "\n[1]Elevlista" +
                 "\n[2]Klasslista" +
                 "\n[3]AdminMeny");
             var val = Console.ReadLine();
             switch (val)
-            {
+            {               
                 //Hämtar alla elever som går på skolan
                 case "1":
-                    var elever = context.Elevers
-                  .OrderBy(e => e.Förnamn);
-                    foreach (Elever e in elever)
+                    Console.WriteLine("Välj [1] för att sortera ALLA i bokstavsordning med förnamn" +
+                        "\nVälj [2] för att sortera ALLA i bokstavsordning med efternamn");
+                    var ordningsval = Console.ReadLine();
+                    switch (ordningsval)
                     {
-                        Console.WriteLine($"Name: {e.Förnamn} {e.Efternamn}");
-                        Console.WriteLine(new string('-', 30));
-                    }                    
-                    break;
-                
+                        case "1":
+                            var elever = context.Elevers
+                            .OrderBy(e => e.Förnamn);
+                            foreach (Elever e in elever)
+                            {
+                                Console.WriteLine($"Name: {e.Förnamn} {e.Efternamn}");
+                                Console.WriteLine(new string('-', 30));
+                            }                           
+                            break;
+                        case "2":
+                            elever = context.Elevers
+                            .OrderBy(e => e.Efternamn);
+                            foreach (Elever e in elever)
+                            {
+                                Console.WriteLine($"Name: {e.Förnamn} {e.Efternamn}");
+                                Console.WriteLine(new string('-', 30));
+                            }
+
+                            break;
+                        default:
+                            Console.WriteLine("FEL.");
+                            break;
+                    }
+                    break;                                 
+                  
                 //Hämtar info klasser, vilka elever som går i vilken klass osv
                 case "2":
                     Console.WriteLine("Välj en klass du vill se info om:");
