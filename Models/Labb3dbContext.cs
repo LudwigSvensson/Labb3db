@@ -201,6 +201,51 @@ namespace Labb3db.Models
 
             OnModelCreatingPartial(modelBuilder);
         }
+        public static Labb3dbContext Meny()
+        {
+            Labb3dbContext context = new Labb3dbContext();
+            bool kör = true;
+            while (kör)
+            {
+                PrintaMeny();
+                int val = 0;
+                if (int.TryParse(Console.ReadLine(), out val))
+                {
+                    switch (val)
+                    {
+                        //Hämtar alla elever som går på skolan
+                        case 1:
+                            Elever.ElevInfo(context);
+                            break;
+
+                        //Hämtar info klasser, vilka elever som går i vilken klass osv
+                        case 2:
+                            Klasser.KlassInfo(context);
+                            break;
+                        case 3:
+                            Anställdum.SkapaNyAnställd(context);
+                            break;
+                        case 4:
+                            kör = false;
+                            break;
+                        default:
+                            Console.WriteLine("FEL.");
+                            break;
+                    }
+                }
+            }
+            return context;
+        }
+
+        private static void PrintaMeny()
+        {
+            Console.WriteLine("Välkommen kom till skolinfo!");
+            Console.WriteLine("Välj [1], [2] eller [3] för att se info:" +
+                "\n[1]Elevlista" +
+                "\n[2]Klasslista" +
+                "\n[3]AdminMeny" +
+                "\n[4]Avsluta");
+        }
 
         partial void OnModelCreatingPartial(ModelBuilder modelBuilder);
     }

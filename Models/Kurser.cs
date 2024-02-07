@@ -10,7 +10,6 @@ namespace Labb3db.Models
             Betygs = new HashSet<Betyg>();
             Lärares = new HashSet<Anställdum>();
         }
-
         public int KursId { get; set; }
         public string Kurstitel { get; set; } = null!;
 
