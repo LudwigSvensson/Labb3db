@@ -20,6 +20,7 @@ namespace Labb3db.Models
 
         public static void KlassInfo(Labb3dbContext context)
         {
+            Console.Clear();
             Console.WriteLine("Välj en klass du vill se info om:");
 
             var klassNamn = context.Klassers
@@ -44,6 +45,7 @@ namespace Labb3db.Models
 
                 if (valdKlass != null)
                 {
+                    Console.Clear();
                     Console.WriteLine($"Classname: {valdKlass.Klassnamn}");
                     Console.WriteLine(new string('-', 30));
                     var eleverIKlass = context.Elevers

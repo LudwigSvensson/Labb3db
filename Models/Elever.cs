@@ -21,6 +21,7 @@ namespace Labb3db.Models
 
         public static void ElevInfo(Labb3dbContext context)
         {
+            Console.Clear();
             Console.WriteLine("Välj [1] för att sortera ALLA i bokstavsordning med förnamn" +
                                     "\nVälj [2] för att sortera ALLA i bokstavsordning med efternamn");
             var ordningsval = Console.ReadLine();
