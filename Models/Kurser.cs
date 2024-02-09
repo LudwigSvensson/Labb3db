@@ -16,5 +16,17 @@ namespace Labb3db.Models
         public virtual ICollection<Betyg> Betygs { get; set; }
 
         public virtual ICollection<Anställdum> Lärares { get; set; }
+        public static void KursInfo(Labb3dbContext context)
+        {
+            Console.Clear();
+
+                    var kurser = context.Kursers
+                    .OrderBy(k => k.Kurstitel);
+                    foreach (Kurser k in kurser)
+                    {
+                        Console.WriteLine($"{k.Kurstitel}");
+                        Console.WriteLine(new string('-', 30));
+                    }    
+        }
     }
 }

@@ -19,7 +19,7 @@ namespace Labb3db.Models
         public virtual DbSet<Anställdum> Anställda { get; set; } = null!;
         public virtual DbSet<Befattningar> Befattningars { get; set; } = null!;
         public virtual DbSet<Betyg> Betygs { get; set; } = null!;
-        public virtual DbSet<Elever> Elevers { get; set; } = null!;
+        public virtual DbSet<Kruser> Elevers { get; set; } = null!;
         public virtual DbSet<Klasser> Klassers { get; set; } = null!;
         public virtual DbSet<Kurser> Kursers { get; set; } = null!;
 
@@ -141,7 +141,7 @@ namespace Labb3db.Models
                     .HasConstraintName("FK_Kurs");
             });
 
-            modelBuilder.Entity<Elever>(entity =>
+            modelBuilder.Entity<Kruser>(entity =>
             {
                 entity.HasKey(e => e.ElevId);
 
@@ -215,7 +215,7 @@ namespace Labb3db.Models
                     {
                         //Hämtar alla elever som går på skolan
                         case 1:
-                            Elever.ElevInfo(context);
+                            Kruser.ElevInfo(context);
                             break;
 
                         //Hämtar info klasser, vilka elever som går i vilken klass osv
@@ -226,6 +226,12 @@ namespace Labb3db.Models
                             Anställdum.SkapaNyAnställd(context);
                             break;
                         case 4:
+                            Kurser.KursInfo(context);
+                            break;
+                        case 5:
+                            Befattningar.AnställdaPerBefattning(context);
+                            break;
+                        case 6:
                             kör = false;
                             break;
                         default:
@@ -240,11 +246,13 @@ namespace Labb3db.Models
         private static void PrintaMeny()
         {
             Console.WriteLine("Välkommen kom till skolinfo!");
-            Console.WriteLine("Välj [1], [2] eller [3] för att se info:" +
+            Console.WriteLine("Välj [1], [2], [3], [4], [5] eller [6]" +
                 "\n[1]Elevlista" +
                 "\n[2]Klasslista" +
                 "\n[3]AdminMeny" +
-                "\n[4]Avsluta");
+                "\n[4]Kurslista" +
+                "\n[5]Anställda" +
+                "\n[6]Avsluta");
         }
 
         partial void OnModelCreatingPartial(ModelBuilder modelBuilder);

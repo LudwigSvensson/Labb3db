@@ -13,7 +13,7 @@ namespace Labb3db.Models
         public DateTime? DatumSatt { get; set; }
 
         public virtual Anställdum? Anställnings { get; set; }
-        public virtual Elever? Elev { get; set; }
+        public virtual Kruser? Elev { get; set; }
         public virtual Kurser? Kurs { get; set; }
     }
 }

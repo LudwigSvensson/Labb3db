@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 
 namespace Labb3db.Models
 {
@@ -11,7 +12,6 @@ namespace Labb3db.Models
             Klasses = new HashSet<Klasser>();
             Kurs = new HashSet<Kurser>();
         }
-
         public int AnställningsId { get; set; }
         public int? BefattningsId { get; set; }
         public string? Förnamn { get; set; }
@@ -67,17 +67,19 @@ namespace Labb3db.Models
                     };
                     context.Anställda.Add(nyAnställd);
                     Console.WriteLine($"Ny anställd med namn: {nyAnställd.Förnamn} {nyAnställd.Efternamn} är skapad" +
-                        $"\nTryck Enter för att spara och återgå till meny");                   
+                        $"\nTryck Enter för att spara och återgå till meny");
                     Console.ReadKey();
                     context.SaveChanges();
                     Console.Clear();
-                    
-                }                                
+
+                }
             }
             else
             {
                 Console.WriteLine("FEL.");
             }
         }
+
+                
     }
 }

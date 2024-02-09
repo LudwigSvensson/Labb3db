@@ -7,14 +7,14 @@ namespace Labb3db.Models
     {
         public Klasser()
         {
-            Elevers = new HashSet<Elever>();
+            Elevers = new HashSet<Kruser>();
             Lärares = new HashSet<Anställdum>();
         }
 
         public int KlassId { get; set; }
         public string Klassnamn { get; set; } = null!;
 
-        public virtual ICollection<Elever> Elevers { get; set; }
+        public virtual ICollection<Kruser> Elevers { get; set; }
 
         public virtual ICollection<Anställdum> Lärares { get; set; }
 
@@ -52,7 +52,7 @@ namespace Labb3db.Models
                         .Where(e => e.KlassId == valdKlass.KlassId)
                         .OrderBy(e => e.Förnamn)
                         .ToList();
-                    foreach (Elever e in eleverIKlass)
+                    foreach (Kruser e in eleverIKlass)
                     {
                         Console.WriteLine($"Name: {e.Förnamn} {e.Efternamn}");
                         Console.WriteLine(new string('-', 30));
