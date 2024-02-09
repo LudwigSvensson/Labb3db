@@ -60,62 +60,53 @@ namespace Labb3db.Models
 
                         case 1:
                             var anställda = context.Anställda
-                    .Where(a => a.BefattningsId == 1)
-                    .ToList();
+                            .Where(a => a.BefattningsId == 1)
+                            .ToList();
                             foreach (var anställd in anställda)
                             {
                                 Console.WriteLine($" - {anställd.Förnamn} {anställd.Efternamn}");
-                            }
-                            Console.WriteLine("Tryck Enter för att återgå till meny");
-                            Console.ReadKey();
-                            Console.Clear();
+                            }                           
                             go = false;
                             break;
 
                         case 2:
                             anställda = context.Anställda
-                    .Where(a => a.BefattningsId == 2)
-                    .ToList();
+                            .Where(a => a.BefattningsId == 2)
+                            .ToList();
                             foreach (var anställd in anställda)
                             {
                                 Console.WriteLine($" - {anställd.Förnamn} {anställd.Efternamn}");
-                            }
-                            Console.WriteLine("Tryck Enter för att återgå till meny");
-                            Console.ReadKey();
-                            Console.Clear();
+                            }                            
                             go = false;
                             break;
                         case 3:
                             anställda = context.Anställda
-                    .Where(a => a.BefattningsId == 3)
-                    .ToList();
+                            .Where(a => a.BefattningsId == 3)
+                            .ToList();
                             foreach (var anställd in anställda)
                             {
                                 Console.WriteLine($" - {anställd.Förnamn} {anställd.Efternamn}");
-                            }
-                            Console.WriteLine("Tryck Enter för att återgå till meny");
-                            Console.ReadKey();
-                            Console.Clear();
+                            }                            
                             go = false;
                             break;
                         case 4:
-                           anställda = context.Anställda
-                    .Where(a => a.BefattningsId == 4)
-                    .ToList();
+                            anställda = context.Anställda
+                            .Where(a => a.BefattningsId == 4)
+                            .ToList();
                             foreach (var anställd in anställda)
                             {
                                 Console.WriteLine($" - {anställd.Förnamn} {anställd.Efternamn}");
-                            }
-                            Console.WriteLine("Tryck Enter för att återgå till meny");
-                            Console.ReadKey();
-                            Console.Clear();
+                            }                            
                             go = false;
                             break;
 
                         default:
                             Console.WriteLine("FEL.");
                             break;
-                    }                    
+                    }
+                    Console.WriteLine("Tryck Enter för att återgå till meny");
+                    Console.ReadKey();
+                    Console.Clear();
                 }
             }
         }
